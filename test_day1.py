@@ -14,4 +14,25 @@
 # Input: nums = [0,0,1,1,1,2,2,3,3,4]
 # Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
 # Explanation: Your function should return k = 5, with the first five elements of nums being 0, 1, 2, 3, and 4 respectively.
-# It does not matter what you lea
+# It does not matter what you lead
+
+# Explain my thought:
+#  sorted: array already, use set to get uniqe array, then have a full array minus the set_nums (unique) to get k
+# then in range of k, append "_" into the set nums. This is O(n) run time
+
+def changeArrayNum(nums):
+    set_nums = set(nums)
+    gap = len(nums) - len(set_nums)
+    unique_nums = list(set_nums)
+    k = str(len(unique_nums))
+    for i in range(gap):
+        unique_nums.append('_')
+    
+    print(k ,',nums =', unique_nums[1:])
+    return k , unique_nums
+
+nums = [1,1,2]
+changeArrayNum(nums)
+
+nums = [0,0,1,1,1,2,2,3,3,4]
+changeArrayNum(nums)
